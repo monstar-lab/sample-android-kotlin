@@ -7,3 +7,7 @@
 /build
 /captures
 .externalNativeBuild
+
+# ruby gems
+/.bundle/
+/vendor/bundle

@@ -1,0 +1,75 @@
+version: 2
+
+defaults: &defaults
+  working_directory: ~/code
+  docker:
+    - image: circleci/android:api-27-alpha
+  environment:
+    JAVA_OPTS: -Xmx1536m
+    GRADLE_OPTS: '-Dorg.gradle.daemon=false -Dorg.gradle.jvmargs="-Xmx1536m -XX:+HeapDumpOnOutOfMemoryError"'
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      - run:
+          name: Download Dependencies
+          command: ./gradlew --stacktrace androidDependencies
+      - save_cache:
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+          paths:
+            - ~/.gradle
+
+      - restore_cache:
+          key: gems-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Install RubyGems
+          command: bundle install --path vendor/bundle
+      - save_cache:
+          key: gems-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - run:
+          name: Lint / Test
+          command: ./gradlew --stacktrace :app:check
+      - run:
+          name: Run Danger
+          command: bundle exec danger
+
+      - run:
+          name: Build apk
+          command: ./gradlew --stacktrace :app:assembleDebug
+      - store_artifacts:
+          path: app/build/outputs/apk/debug/app-debug.apk
+          destination: app-debug.apk
+      - persist_to_workspace:
+          root: ~/code
+          paths:
+            - .
+
+  deploy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/code
+      - run:
+          name: Build apk
+          command: ./gradlew --stacktrace :app:assembleRelease
+      - store_artifacts:
+          path: app/build/outputs/apk/release/app-release.apk
+          destination: app-release.apk
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
