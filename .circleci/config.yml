@@ -34,11 +34,11 @@ jobs:
             - vendor/bundle
 
       - run:
-          name: Lint / Test
-          command: ./gradlew --stacktrace :app:check
-      - run:
-          name: Run Danger
-          command: bundle exec danger
+          name: Lint
+          command: |
+              ./gradlew --stacktrace ktlintCheck
+              ./gradlew --stacktrace lint
+              bundle exec danger
 
       - run:
           name: Build apk

@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: "org.jlleitschuh.gradle.ktlint"
 
 android {
     compileSdkVersion 27
@@ -21,6 +20,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+ktlint {
+    version = "0.15.0"
+    android = true
+    reporters = org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE
+    ignoreFailures = true
 }
 
 dependencies {
