@@ -1,6 +1,6 @@
 # Sample for Android (Kotlin)
 
-[![CircleCI](https://circleci.com/gh/noboru-i/sample-android-java.svg?style=svg)](https://circleci.com/gh/noboru-i/sample-android-kotlin)
+[![CircleCI](https://circleci.com/gh/noboru-i/sample-android-kotlin.svg?style=svg)](https://circleci.com/gh/noboru-i/sample-android-kotlin)
 
 This is the sample continuous integrated project for Android (Kotlin).
 
@@ -23,6 +23,7 @@ This is the sample continuous integrated project for Android (Kotlin).
     - `Dangerfile`
     - `Gemfile`
     - `Gemfile.lock` : If you want newer version, please exec `bundle update`.
+    - `build.gradle`
     - `app/build.gradle`
     - `app/keystores/debug.keystore` : Please get from local.
     - `app/keystores/release.jks` : Please get or create.
