@@ -36,4 +36,19 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+    public fun a() {
+    }
+    public fun b() {
+    }
+    public fun c() {
+    }
+    public fun d() {
+    }
+    public fun e() {
+    }
+    public fun f() {
+    }
+    public fun g() {
+    }
 }
