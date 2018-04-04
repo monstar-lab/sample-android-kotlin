@@ -57,7 +57,7 @@ detekt {
         input = "$projectDir"
         config = "$rootDir/detekt.yml"
         filters = ".*test.*,.*/resources/.*,.*/tmp/.*"
-        output = "$project.projectDir/build/reports"
+        output = "$project.projectDir/build/reports/detekt"
     }
 }
 
