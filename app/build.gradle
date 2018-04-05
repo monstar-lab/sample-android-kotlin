@@ -51,6 +51,16 @@ ktlint {
     ignoreFailures = true
 }
 
+detekt {
+    version = "1.0.0.RC6-4"
+    profile("main") {
+        input = "$projectDir"
+        config = "$rootDir/detekt.yml"
+        filters = ".*test.*,.*/resources/.*,.*/tmp/.*"
+        output = "$projectDir/build/reports/detekt"
+    }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"

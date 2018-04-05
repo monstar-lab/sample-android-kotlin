@@ -8,6 +8,7 @@ This is the sample continuous integrated project for Android (Kotlin).
 
 - **Lint**
   - **ktlint**
+  - **detekt**
   - **Android Lint**
 - **Build**: Configured build setting. e.g. `signingConfigs`, `buildTypes`
 - **CircleCI**: Lint, Test, and Build in [CircleCI](https://circleci.com/).
@@ -24,6 +25,7 @@ This is the sample continuous integrated project for Android (Kotlin).
     - `Gemfile`
     - `Gemfile.lock` : If you want newer version, please exec `bundle update`.
     - `build.gradle`
+    - `detekt.yml` : Please create default config by `./gradlew detektGenerateConfig`
     - `app/build.gradle`
     - `app/keystores/debug.keystore` : Please get from local.
     - `app/keystores/release.jks` : Please get or create.
