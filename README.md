@@ -35,6 +35,26 @@ This is the sample continuous integrated project for Android (Kotlin).
     - `ANDROID_KEYSTORE_ALIAS` : alias for release keystore
     - `ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD` : alias's password for release keystore
 
+## Memo
+
+### Why integrate both of ktlint and detekt?
+
+I think, 2 tools check different points.
+
+- `ktlint` focus code style. (e.g. position of whitespace, naming rule.)
+- `detekt` focus code smell. (e.g. condition is too complex, equals is implemented by hashCode is not.)
+
+### Why configure ktlint and detekt in build.gradle directly?
+
+We have [monstar-lab/gradle-android-ci-check](https://github.com/monstar-lab/gradle-android-ci-check).  
+We need to improve that for kotlin setting.
+
+But, currently, ktlint and detekt is developing very rapidly.  
+So some interfaces may be changes.  
+So now, configure in build.gradle directly.
+
+(In the future, we need improve `monstar-lab/gradle-android-ci-check`.)
+
 ## Customize
 
 This repository is targeting for very simple project.
