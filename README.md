@@ -1,6 +1,6 @@
 # Sample for Android (Kotlin)
 
-[![CircleCI](https://circleci.com/gh/noboru-i/sample-android-kotlin.svg?style=svg)](https://circleci.com/gh/noboru-i/sample-android-kotlin)
+[![CircleCI](https://circleci.com/gh/monstar-lab/sample-android-kotlin.svg?style=svg)](https://circleci.com/gh/monstar-lab/sample-android-kotlin)
 
 This is the sample continuous integrated project for Android (Kotlin).
 
@@ -19,7 +19,7 @@ This is the sample continuous integrated project for Android (Kotlin).
 
 1. Setup CircleCI build.
     - Turn "On" "Only build pull requests".
-2. Copy or refer to below files. [diff](https://github.com/noboru-i/sample-android-kotlin/compare/6e14739b8d26c11b66d3e0c11478fbe84b479ebc...master)
+2. Copy or refer to below files. [diff](https://github.com/monstar-lab/sample-android-kotlin/compare/6e14739b8d26c11b66d3e0c11478fbe84b479ebc...master)
     - `.circleci/config.yml`
     - `Dangerfile`
     - `Gemfile`
@@ -61,5 +61,5 @@ This repository is targeting for very simple project.
 
 But in real world, we need to work for complex project.
 
-We have some advice for customizing configuration in [Wiki](https://github.com/noboru-i/sample-android-kotlin/wiki).
+We have some advice for customizing configuration in [Wiki](https://github.com/monstar-lab/sample-android-kotlin/wiki).
 Please refer to it.
